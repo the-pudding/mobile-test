@@ -7,7 +7,6 @@
 </script>
 
 <section>
-	<!-- window dimensions -->
 	<!-- <div
 		class="fixed"
 		style:width={dimensions.width + "px"}
@@ -15,13 +14,12 @@
 	>
 		<p>{dimensions.width} x {dimensions.height}</p>
 	</div> -->
-
-	<!-- svh -->
 	<div class="svh" bind:this={svhEl}>
 		<p>svh: {svh}</p>
 	</div>
 </section>
 
+<div class="spacer"></div>
 <div class="spacer"></div>
 <div class="spacer"></div>
 <div class="spacer"></div>
