@@ -1,11 +1,66 @@
 <script>
-	import { getContext } from "svelte";
-	import Footer from "$components/Footer.svelte";
+	import useWindowDimensions from "$runes/useWindowDimensions.svelte";
 
-	// const copy = getContext("copy");
-	// const data = getContext("data");
+	let dimensions = new useWindowDimensions();
+	let svhEl = $state(null);
+	let svh = $derived(dimensions.height && svhEl ? svhEl.clientHeight : 0);
 </script>
 
-<svelte:boundary onerror={(e) => console.error(e)}>
-	<!-- <Footer recirc={true} /> -->
-</svelte:boundary>
+<section>
+	<!-- window dimensions -->
+	<!-- <div
+		class="fixed"
+		style:width={dimensions.width + "px"}
+		style:height={dimensions.height + "px"}
+	>
+		<p>{dimensions.width} x {dimensions.height}</p>
+	</div> -->
+
+	<!-- svh -->
+	<div class="svh" bind:this={svhEl}>
+		<p>svh: {svh}</p>
+	</div>
+</section>
+
+<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+
+<style>
+	section {
+		overflow: hidden;
+	}
+
+	div.fixed {
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: lightpink;
+		border: 2px solid red;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	p {
+		margin: 0;
+		text-align: center;
+	}
+
+	div.svh {
+		width: 100%;
+		height: 100svh;
+		background: lightgreen;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 2px solid green;
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+	div.spacer {
+		height: 600px;
+		background: lightblue;
+	}
+</style>

@@ -29,5 +29,9 @@ export default defineConfig({
 	},
 	ssr: {
 		noExternal: ["bits-ui"]
+	},
+
+	server: {
+		allowedHosts: ["www.localhost.com"]
 	}
 });
